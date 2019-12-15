@@ -4,8 +4,7 @@
 #include <QMessageBox>
 #include <string>
 #include <fstream>
-#include <QDebug>
-#include <QtSerialPort/QSerialPort>
+
 using namespace std;
 
 Info_aluno::Info_aluno(QWidget *parent) :

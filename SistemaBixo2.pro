@@ -16,17 +16,27 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    controle_faltas_materia.cpp \
+    creditos.cpp \
     info_aluno.cpp \
+    info_materia.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     Aluno.h \
+    Materia.h \
+    controle_faltas_materia.h \
+    creditos.h \
     info_aluno.h \
+    info_materia.h \
     mainwindow.h
 
 FORMS += \
+    controle_faltas_materia.ui \
+    creditos.ui \
     info_aluno.ui \
+    info_materia.ui \
     mainwindow.ui
 
 # Default rules for deployment.
@@ -35,3 +45,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES +=
+
+RESOURCES += \
+    teste.qrc

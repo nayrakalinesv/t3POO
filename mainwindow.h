@@ -19,6 +19,10 @@ public:
 private slots:
     void on_btn_Info_aluno_clicked();
 
+    void on_btn_Materias_clicked();
+
+    void on_btn_Info_aluno_2_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
