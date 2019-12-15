@@ -1,6 +1,6 @@
 #ifndef INFO_ALUNO_H
 #define INFO_ALUNO_H
-
+#include <fstream>
 #include <QDialog>
 
 namespace Ui {
@@ -20,6 +20,7 @@ private slots:
 
 private:
     Ui::Info_aluno *ui;
+
 };
 
 #endif // INFO_ALUNO_H

@@ -1,24 +1,41 @@
 #ifndef ALUNO_H
 #define ALUNO_H
 #include <QString>
+#include <cstring>
+
+using namespace std;
 
 class Aluno{
 public:
-    Aluno();
-    Aluno(QString nome, QString RA):nome(nome), RA(RA){}
-    ~Aluno(){}
-    void setRA(QString n_RA){
-        this->RA = n_RA;
+    Aluno(){
+
     }
-    void setNome(QString novo_nome){
-        this->nome = novo_nome;
+
+    ~Aluno(){}
+
+    void setRA(QString n_RA){
+        strcpy(this->RA, n_RA.toStdString().c_str());
+    }
+
+    void setNome(QString n_nome){
+        strcpy(this->nome, n_nome.toStdString().c_str());
+    }
+
+    QString getRA(){
+        string s(RA);
+
+        QString x = QString::fromStdString(s);
+        return x;
+    }
+    QString getNome(){
+        string s(nome);
+        QString x = QString::fromStdString(s);
+        return x;
     }
 private:
-
-    QString nome, RA;
-    //vector de ponteiros para classe matéria
+    char nome[50];
+    char RA[12];
 
 };
-
 
 #endif // ALUNO_H
