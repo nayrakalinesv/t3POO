@@ -44,7 +44,9 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-DISTFILES +=
+DISTFILES += \
+    imgs/logo-bcc.png \
+    imgs/timaia.jpg
 
 RESOURCES += \
-    teste.qrc
+    arquivos.qrc
