@@ -33,9 +33,15 @@ public:
     }
 
     bool estourou_faltas(){
-        if(numero_faltas >  max_faltas){
+        if(numero_faltas ==  max_faltas){
             return true;
         }
+        return false;
+    }
+
+    bool perdeu_a_materia(){
+        if(numero_faltas > max_faltas)
+            return true;
         return false;
     }
 
@@ -44,8 +50,16 @@ public:
         return numero_faltas;
     }
     int remove_falta(){
-        this->numero_faltas = numero_faltas - 1;
+        if(numero_faltas != 0)
+            this->numero_faltas = numero_faltas - 1;
+
         return numero_faltas;
+    }
+
+    QString objeto_salvo(){
+        string s(existe);
+        QString x = QString::fromStdString(s);
+        return x;
     }
 
 
@@ -53,6 +67,7 @@ private:
 
     int numero_faltas, max_faltas;
     char descricao[200];
+    char existe[6] = {'e', 'x', 'i', 's', 't', 'e'};
 
 };
 

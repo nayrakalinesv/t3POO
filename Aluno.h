@@ -23,7 +23,6 @@ public:
 
     QString getRA(){
         string s(RA);
-
         QString x = QString::fromStdString(s);
         return x;
     }

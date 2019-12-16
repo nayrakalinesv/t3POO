@@ -37,7 +37,8 @@ void Info_aluno::on_pushButton_clicked()
 {
     QString nome = ui->cx_Edit_Nome->text();
     QString RA = ui->cxc_Edit_RA->text();
-    QMessageBox::information(this, "Dados alterados com sucesso!", "Nome: "+nome+"\nRA: "+RA);
+
+    QMessageBox::information(this, "Dados alterados com sucesso!", "Nome: "+nome+"\n--------------------------------------------\nRA: "+RA);
 
 
    //criando objeto Aluno para ser salvo em um arquivo binário

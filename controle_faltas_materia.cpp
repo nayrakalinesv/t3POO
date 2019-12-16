@@ -2,6 +2,9 @@
 #include "ui_controle_faltas_materia.h"
 #include "Materia.h"
 #include <fstream>
+#include <QMessageBox>
+#include <QDebug>
+
 
 controle_faltas_materia::controle_faltas_materia(int tipo_materia, QWidget *parent) :
     QDialog(parent),
@@ -13,14 +16,12 @@ controle_faltas_materia::controle_faltas_materia(int tipo_materia, QWidget *pare
     Materia* pont_materia = new Materia;
 
     //1=calculo, 2=LD, 3=IPA, 4=CAP
-    //pont_materia->setDescrcao("1. NÚMEROS REAIS E FUNÇÕES DE UMA VARIÁVEL REAL.2. LIMITES E CONTINUIDADE.3. CÁLCULO DIFERENCIAL E APLICAÇÕES.4. CÁLCULO INTEGRAL E APLICAÇÕES.");
 
     if(tipo_materia == 1){
         ui->lbl_materia->setText("CDI - Cálculo Diferencial e Integral I - 6 créditos - DM");
         ifstream ifs;
         ifs.open("calculo.bin", ios::binary);
-
-        if (ifs.is_open()) {
+        if (ifs.is_open()){
             ifs.read(reinterpret_cast<char*>(pont_materia), sizeof (Materia));
         }
         ifs.close();
@@ -76,8 +77,6 @@ controle_faltas_materia::~controle_faltas_materia()
     delete ui;
 }
 
-
-
 void controle_faltas_materia::on_btn_add_falta_clicked()
 {
     if(tipo_materia == 1){
@@ -90,6 +89,13 @@ void controle_faltas_materia::on_btn_add_falta_clicked()
         }
         ifs.close();
         pont_materia->adiciona_falta();
+        pont_materia->setMaxFaltas((11));
+        if(pont_materia->estourou_faltas()){
+            QMessageBox::warning(this, "Pare de faltar", "Você ESTOUROU seu número de faltas, PARE de faltar");
+        }
+        if(pont_materia->perdeu_a_materia()){
+            QMessageBox::critical(this, "Numero de faltas estourado", "Parabéns seu imbecil, você acaba de perder essa matéria!\nNos vemos no próximo semestre.");
+        }
         ofstream ofs;
         ofs.open("calculo.bin", ios::binary);
         if (ofs.is_open()) {
@@ -109,6 +115,13 @@ void controle_faltas_materia::on_btn_add_falta_clicked()
         }
         ifs.close();
         pont_materia->adiciona_falta();
+        pont_materia->setMaxFaltas((11));
+        if(pont_materia->estourou_faltas()){
+            QMessageBox::warning(this, "Pare de faltar", "Você ESTOUROU seu número de faltas, PARE de faltar");
+        }
+        if(pont_materia->perdeu_a_materia()){
+            QMessageBox::critical(this, "Numero de faltas estourado", "Parabéns seu imbecil, você acaba de perder essa matéria!\nNos vemos no próximo semestre.");
+        }
         ofstream ofs;
         ofs.open("LD.bin", ios::binary);
         if (ofs.is_open()) {
@@ -128,6 +141,13 @@ void controle_faltas_materia::on_btn_add_falta_clicked()
         }
         ifs.close();
         pont_materia->adiciona_falta();
+        pont_materia->setMaxFaltas((3));
+        if(pont_materia->estourou_faltas()){
+            QMessageBox::warning(this, "Pare de faltar", "Você ESTOUROU seu número de faltas, PARE de faltar");
+        }
+        if(pont_materia->perdeu_a_materia()){
+            QMessageBox::critical(this, "Numero de faltas estourado", "Parabéns seu imbecil, você acaba de perder essa matéria!\nNos vemos no próximo semestre.");
+        }
         ofstream ofs;
         ofs.open("IPA.bin", ios::binary);
         if (ofs.is_open()) {
@@ -146,6 +166,13 @@ void controle_faltas_materia::on_btn_add_falta_clicked()
         }
         ifs.close();
         pont_materia->adiciona_falta();
+        pont_materia->setMaxFaltas((15));
+        if(pont_materia->estourou_faltas()){
+            QMessageBox::warning(this, "Pare de faltar", "Você ESTOUROU seu número de faltas, PARE de faltar");
+        }
+        if(pont_materia->perdeu_a_materia()){
+            QMessageBox::critical(this, "Numero de faltas estourado", "Parabéns seu imbecil, você acaba de perder essa matéria!\nNos vemos no próximo semestre.");
+        }
         ofstream ofs;
         ofs.open("CAP.bin", ios::binary);
         if (ofs.is_open()) {
