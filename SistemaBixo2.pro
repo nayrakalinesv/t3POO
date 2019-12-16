@@ -20,16 +20,19 @@ SOURCES += \
     creditos.cpp \
     info_aluno.cpp \
     info_materia.cpp \
+    lembrete.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     Aluno.h \
+    Lembre.h \
     Materia.h \
     controle_faltas_materia.h \
     creditos.h \
     info_aluno.h \
     info_materia.h \
+    lembrete.h \
     mainwindow.h
 
 FORMS += \
@@ -37,6 +40,7 @@ FORMS += \
     creditos.ui \
     info_aluno.ui \
     info_materia.ui \
+    lembrete.ui \
     mainwindow.ui
 
 # Default rules for deployment.

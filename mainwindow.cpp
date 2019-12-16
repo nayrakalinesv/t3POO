@@ -4,6 +4,7 @@
 #include "info_aluno.h"
 #include "info_materia.h"
 #include "creditos.h"
+#include "lembrete.h"
 #include <QMessageBox>
 #include <QFile>
 #include <QTextStream>
@@ -41,4 +42,12 @@ void MainWindow::on_btn_Info_aluno_2_clicked()
 {
     Creditos janela_creditos;
     janela_creditos.exec();
+}
+
+
+
+void MainWindow::on_btn_Calendario_clicked()
+{
+    Lembrete janela_lembrete;
+    janela_lembrete.exec();
 }

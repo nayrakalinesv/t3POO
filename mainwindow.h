@@ -23,6 +23,8 @@ private slots:
 
     void on_btn_Info_aluno_2_clicked();
 
+    void on_btn_Calendario_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
